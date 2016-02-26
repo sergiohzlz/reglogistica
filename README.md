@@ -1,4 +1,22 @@
-# reglineal
-Regresión logística usando descenso del gradiente 
+# Logit : Regresión Logística 
+Implementación de Regresión logística usando descenso del gradiente 
 
 Usa python 2.7 y numpy
+
+Ejemplo :
+$ python desclogit.py
+Salida
+.
+.
+.
+9990 : 0.1598099488
+9991 : 0.159808993261
+9992 : 0.159808037941
+9993 : 0.15980708284
+9994 : 0.159806127958
+9995 : 0.159805173294
+9996 : 0.15980421885
+9997 : 0.159803264623
+9998 : 0.159802310616
+9999 : 0.159801356827
+Después de 10000 iteraciones W_0=0.0215683443439, W_1=22.3058916175, W_2=0.756858698407, error=0.159801356827
