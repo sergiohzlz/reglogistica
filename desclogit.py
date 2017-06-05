@@ -4,18 +4,25 @@
 from pylab import *
 
 def J(W,C,Y):
-    E = 0.0; m = float(len(C)) 
+    """
+    Función de costos
+    """
+    E = 0.0
+    m = len(C)
     for i in range(len(C)):
         y = Y[i]
-        x = C[i] 
-        hp = sigmoide(W.T.dot(x)); 
+        x = C[i]
+        hp = sigmoide(W.T.dot(x));
         hn = sigmoide(W.T.dot(-x));
         e = -y*log(hp)-(1-y)*log(hn);
         E += e
-    return (1/m)*E
+    return (1./m)*E
 
 
 def sigmoide(X):
+    """
+    Función sigmoide
+    """
     num = 1.
     den = 1+exp(-X)
     return num/den
@@ -49,7 +56,7 @@ def paso_gradiente(Wa, C, Y):
     shuffle(permutacion)
     for j in range(n-1):
         for i in permutacion:
-            grad[j] += delta[i]*C[i,j]	
+            grad[j] += delta[i]*C[i,j]
     return -(1./N)*grad
 
 def grad_desc( W0,P, Y, ca, iters, verbose=True):
@@ -82,6 +89,6 @@ def ejemplo():
     Wf, costos, tams = grad_desc( W0, Xn, Y, ca, iters )
     error_f = J(Wf,Xn, Y)
     print u"Después de {0} iteraciones W_0={1}, W_1={2}, W_2={3}, error={4}".format(iters, Wf[0],Wf[1],Wf[2] ,error_f)
-    
+
 if __name__ =='__main__':
     ejemplo()
