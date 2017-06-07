@@ -62,7 +62,6 @@ def paso_gradiente(Wa, C, Y):
 def grad_desc( W0,P, Y, ca, iters, verbose=True):
     pesos = [W0[:]]
     costos = [J(W0,P,Y)]
-    tamanos = [norm(W0)]
     for i in range(iters):
         pa = pesos[-1]
         grad = paso_gradiente(pa, P, Y)
@@ -70,10 +69,9 @@ def grad_desc( W0,P, Y, ca, iters, verbose=True):
         costo = J(pa,P,Y)
         pesos.append(pa[:])
         costos.append(costo)
-        tamanos.append(norm(grad))
         if verbose:
             print i,":",costo
-    return pesos[-1], costos, tamanos
+    return pesos[-1], costos
 
 def ejemplo():
     P = genfromtxt('conjen_logit.csv', delimiter=',')
